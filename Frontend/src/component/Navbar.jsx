@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FaBars } from "react-icons/fa6";
 
@@ -6,6 +6,17 @@ const LandingPage = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
   const [formData, setFormData] = useState({ username: "", password: "" });
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsOpen(false); 
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -114,7 +125,7 @@ const LandingPage = () => {
           position: fixed;
           left: ${isOpen ? "0" : "-260px"};
           top: 0;
-          background: #f8f9fa;
+          background: rgb(248, 248, 250);
           padding: 20px;
           transition: left 0.3s ease-in-out;
           box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
