@@ -57,11 +57,13 @@ const LandingPage = () => {
         <button className="btn btn-success w-100 my-2" onClick={() => setShowSignUp(true)}>
           Sign Up
         </button>
+        <button className="btn btn-primary w-100 my-2">Create Account</button>
       </div>
       <div className="content flex-grow-1">
         <button className="toggle-btn" onClick={() => setIsOpen(!isOpen)}>
           <FaBars size={24} />
         </button>
+        
         <section className="container hero-section d-flex align-items-center justify-content-center py-5">
           <div className="row align-items-center">
             <div className="col-md-6">

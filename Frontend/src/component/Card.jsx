@@ -45,18 +45,21 @@ function Card() {
   ];
 
   return (
-    <div style={styles.cardContainer}>
-      {features.map((feature, index) => (
-        <div key={index} style={styles.card} className="feature-card">
-          <div style={styles.imageContainer}>
-            <img src={feature.img} alt={feature.title} style={styles.cardImg} />
+    <div style={styles.container}>
+      <h1 style={styles.header}> Our Features</h1>
+      <div style={styles.cardContainer}>
+        {features.map((feature, index) => (
+          <div key={index} style={styles.card} className="feature-card">
+            <div style={styles.imageContainer}>
+              <img src={feature.img} alt={feature.title} style={styles.cardImg} />
+            </div>
+            <div style={styles.cardBody}>
+              <h2 style={styles.cardTitle}>{feature.title}</h2>
+              <p style={styles.cardText}>{feature.description}</p>
+            </div>
           </div>
-          <div style={styles.cardBody}>
-            <h2 style={styles.cardTitle}>{feature.title}</h2>
-            <p style={styles.cardText}>{feature.description}</p>
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
       <style>{`
         .feature-card {
           transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -72,13 +75,22 @@ function Card() {
 }
 
 const styles = {
+  container: {
+    textAlign: "center",
+    padding: "40px",
+    background: "#f8f9fa",
+  },
+  header: {
+    fontSize: "2.5rem",
+    fontWeight: "bold",
+    color: "#666",
+    marginBottom: "20px",
+  },
   cardContainer: {
     display: "grid",
     gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
     gap: "20px",
-    padding: "40px",
     justifyItems: "center",
-    background: "#f8f9fa",
   },
   card: {
     width: "100%",
